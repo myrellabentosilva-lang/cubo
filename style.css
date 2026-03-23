@@ -1,0 +1,44 @@
+/* Centralização da esfera na tela */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #121212;
+    overflow: hidden;
+}
+
+/* Estilização da Esfera */
+.esfera {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    cursor: pointer;
+    
+    /* Gradiente inicial (Cinza/Preto para parecer desligada) */
+    background: radial-gradient(circle at 35% 35%, #444, #000);
+    
+    /* Sombra projetada no 'chão' para aumentar o realismo */
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.9);
+    
+    /* Transição suave para o efeito de escala */
+    transition: transform 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+.esfera:hover {
+    transform: scale(1.05);
+    /* A animação roda em 0.1 segundos para parecer um sorteio rápido */
+    animation: sorteioCores 0.1s infinite;
+}
+
+/* Lista de cores para simular a aleatoriedade */
+@keyframes sorteioCores {
+    0%   { background: radial-gradient(circle at 35% 35%, #ff3e3e, #000); }
+    20%  { background: radial-gradient(circle at 35% 35%, #3eff4b, #000); }
+    40%  { background: radial-gradient(circle at 35% 35%, #3e86ff, #000); }
+    60%  { background: radial-gradient(circle at 35% 35%, #f9ff3e, #000); }
+    80%  { background: radial-gradient(circle at 35% 35%, #ff3ef2, #000); }
+    100% { background: radial-gradient(circle at 35% 35%, #3efff2, #000); }
+}
